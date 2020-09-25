@@ -21122,9 +21122,7 @@ button:focus {
   opacity: 0;
 }
 
-.u-slick {
-  background: url(..//svg/preloaders/slick-carousel-preloader-primary.svg) no-repeat 50% 50%;
-}
+
 
 .u-slick .js-next,
 .u-slick .js-prev {

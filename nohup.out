@@ -1,0 +1,72 @@
+[I 16:36:59.056 LabApp] The port 8888 is already in use, trying another port.
+[W 16:36:59.060 LabApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "c:\users\yaya\appdata\local\programs\python\python38\lib\site-packages\notebook\notebookapp.py", line 1942, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "c:\users\yaya\appdata\local\programs\python\python38\lib\importlib\__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 16:36:59.333 LabApp] JupyterLab extension loaded from c:\users\yaya\appdata\local\programs\python\python38\lib\site-packages\jupyterlab
+[I 16:36:59.333 LabApp] JupyterLab application directory is c:\users\yaya\appdata\local\programs\python\python38\share\jupyter\lab
+[I 16:36:59.335 LabApp] Serving notebooks from local directory: C:\Users\yaya\Desktop\Data science\Ecole microsoft Data IA\Projet\Projet Offre D'emploie\flask_app\flaskapp
+[I 16:36:59.335 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 16:36:59.335 LabApp] http://localhost:8889/?token=cc7de183b4ab2f9b9d91ece7e5e608d39bbb1020f566e90c
+[I 16:36:59.335 LabApp]  or http://127.0.0.1:8889/?token=cc7de183b4ab2f9b9d91ece7e5e608d39bbb1020f566e90c
+[I 16:36:59.335 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 16:36:59.382 LabApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///C:/Users/yaya/AppData/Roaming/jupyter/runtime/nbserver-15968-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8889/?token=cc7de183b4ab2f9b9d91ece7e5e608d39bbb1020f566e90c
+     or http://127.0.0.1:8889/?token=cc7de183b4ab2f9b9d91ece7e5e608d39bbb1020f566e90c
+[I 16:37:03.675 LabApp] Build is up to date
+[W 16:37:04.411 LabApp] 404 GET /api/contents/flaskapp/scrape_indeed_V3_backed.ipynb?content=0&1600871823724 (::1): No such file or directory: flaskapp/scrape_indeed_V3_backed.ipynb
+[W 16:37:04.411 LabApp] No such file or directory: flaskapp/scrape_indeed_V3_backed.ipynb
+[W 16:37:04.411 LabApp] 404 GET /api/contents/flaskapp/scrape_indeed_V3_backed.ipynb?content=0&1600871823724 (::1) 172.29ms referer=http://localhost:8889/lab
+[W 16:37:05.338 LabApp] 404 GET /terminals/websocket/1 (::1) 492.97ms referer=None
+[W 16:37:05.683 LabApp] 404 GET /api/contents/flaskapp?1600871825674 (::1): No such file or directory: flaskapp
+[W 16:37:05.684 LabApp] No such file or directory: flaskapp
+[W 16:37:05.684 LabApp] 404 GET /api/contents/flaskapp?1600871825674 (::1) 3.00ms referer=http://localhost:8889/lab
+[I 16:40:43.727 LabApp] Creating new notebook in /
+[I 16:40:44.534 LabApp] Kernel started: a1864a23-9201-44ac-972a-29002653a523, name: python3
+[I 16:40:55.072 LabApp] Kernel shutdown: a1864a23-9201-44ac-972a-29002653a523
+[W 16:40:55.300 LabApp] delete /Untitled.ipynb
+[W 16:41:02.271 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:41:03.722 LabApp] Kernel started: eae5efd2-be4b-4a0f-b252-5300d36da7db, name: python3
+[I 16:43:03.118 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:43:03.118 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:45:03.200 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:45:03.200 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:47:03.284 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:47:03.284 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:49:03.360 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:49:03.361 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:51:03.470 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:51:03.471 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:52:13.229 LabApp] New terminal with automatic name: 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 16:52:53.468 LabApp] Starting buffering for eae5efd2-be4b-4a0f-b252-5300d36da7db:9bba49ce-be4c-4a9e-888a-f520ef202601
+Websocket closed
+[I 16:52:55.396 LabApp] Build is up to date
+[W 16:52:56.144 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 16:53:47.971 LabApp] Kernel restarted: eae5efd2-be4b-4a0f-b252-5300d36da7db
+[I 16:54:07.195 LabApp] Kernel restarted: eae5efd2-be4b-4a0f-b252-5300d36da7db
+[I 16:54:57.184 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 16:54:57.184 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:09:28.212 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:09:28.224 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:09:28.384 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:09:28.385 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:11:28.453 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:11:28.454 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:13:28.506 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:13:28.507 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:14:37.600 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:14:37.600 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted
+[I 17:14:37.745 LabApp] Saving file at /scrape_indeed_V3_backed.ipynb
+[W 17:14:37.745 LabApp] Notebook scrape_indeed_V3_backed.ipynb is not trusted

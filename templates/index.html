@@ -15,13 +15,15 @@
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
   <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="../static/css/all.min.css">
+  <link rel="stylesheet" href={{ url_for('static', filename='/css/style.css')}}>
   <link rel="stylesheet" href="../static/vendor/hs.megamenu.css">
-  <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href={{ url_for('static', filename='/css/jquery.mCustomScrollbar.css')}}>
   <link rel="stylesheet" href="../static/vendor/custombox.min.css">
   <link rel="stylesheet" href="../static/vendor/animate.min.css">
   <link rel="stylesheet" href="../static/vendor/slick.css">
   <link rel="stylesheet" href="../static/css/jquery.fancybox.css">
+  <!-- FONT AWESOME-->
+  <script src="https://kit.fontawesome.com/4a78cc9e50.js" crossorigin="anonymous"></script>
 
   <!-- CSS Space Template -->
   <link rel="stylesheet" href="../static/css/theme.css">
@@ -29,6 +31,7 @@
 
 <body>
   <!-- Skippy -->
+
   <a id="skippy" class="sr-only sr-only-focusable u-skippy" href="#content">
     <div class="container">
       <span class="u-skiplink-text">Skip to main content</span>
@@ -64,7 +67,7 @@
             <div class="col-lg-5">
               <!-- Signup Form -->
               <div class="bg-white shadow-sm rounded p-6">
-                <form class="js-validate" action="{{ url_for('get_offers') }}" method=post>
+                <div class="js-validate">
                   <div class="mb-4">
                     <h2 class="h4">Get started your Job Seek</h2>
                   </div>
@@ -72,7 +75,7 @@
                   <!-- Input -->
                   <div class="js-form-message mb-3">
                     <div class="js-focus-state input-group input-group form">
-                      <input type="text" class="form-control form__input" name="skills_field" required
+                      <input type="text" class="form-control form__input skills_field" id='skills-field-data'name="skills_field" required
                              placeholder="Skills your looking for"
                              aria-label="Skills your looking for">
                     </div>
@@ -82,7 +85,7 @@
                   <!-- Input -->
                   <div class="js-form-message mb-3">
                     <div class="js-focus-state input-group input-group form">
-                      <input type="text" class="form-control form__input" name="Title_field" required
+                      <input type="text" class="form-control form__input title_field" id='title-field-data' name="Title_field" required
                              placeholder="Job Title"
                              aria-label="Job Title">
                     </div>
@@ -99,8 +102,8 @@
                   </div>
                    End Input -->
 
-                  <button type="submit" class="btn btn-block btn-primary">Submit</button>
-                </form>
+                  <button class="btn btn-block btn-primary" id='search-job-btn'>Search Job</button>
+                </div>
               </div>
               <!-- End Signup Form -->
             </div>
@@ -145,7 +148,7 @@
                  "slidesToShow": 2
                }
              }]'>
-          <div class="js-slide">
+          <!-- <div class="js-slide">
             <img class="u-clients" src="../../assets/img/clients/amazon.png" alt="Image Description">
           </div>
           <div class="js-slide">
@@ -168,7 +171,7 @@
           </div>
           <div class="js-slide">
             <img class="u-clients" src="../../assets/img/clients/spotify.png" alt="Image Description">
-          </div>
+          </div> -->
         </div>
         <!-- End Slick Carousel -->
       </div>
@@ -189,13 +192,13 @@
 
             <!-- Tab Nav -->
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link active tab-vertical__nav-link" id="v-pills-data-scientist-tab" data-toggle="pill" href="#v-pills-data-scientist" role="tab" aria-controls="v-pills-features" aria-selected="true">
+              <a class="nav-link active tab-vertical__nav-link data-link" id="v-pills-data-scientist-tab" data-toggle="pill" href="#v-pills-data-scientist" role="tab" aria-controls="v-pills-features" aria-selected="true">
                 1. Data Scientist
               </a>
-              <a class="nav-link tab-vertical__nav-link" id="v-pills-key--data-engineer-tab" data-toggle="pill" href="#v-pills-key-data-engineer" role="tab" aria-controls="v-pills-key-benefits" aria-selected="false">
+              <a class="nav-link tab-vertical__nav-link data-link" id="v-pills-key--data-engineer-tab" data-toggle="pill" href="#v-pills-key-data-engineer" role="tab" aria-controls="v-pills-key-benefits" aria-selected="false">
                 2. Data Engineer
               </a>
-              <a class="nav-link tab-vertical__nav-link" id="v-pills-data-analyst-tab" data-toggle="pill" href="#v-pills-data-analyst" role="tab" aria-controls="v-pills-company" aria-selected="false">
+              <a class="nav-link tab-vertical__nav-link data-link" id="v-pills-data-analyst-tab" data-toggle="pill" href="#v-pills-data-analyst" role="tab" aria-controls="v-pills-company" aria-selected="false">
                 3. Data Analyst
               </a>
             </div>
@@ -208,20 +211,20 @@
           <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-features" role="tabpanel" aria-labelledby="v-pills-features-tab">
               <div class="row">
-                <div class="col-sm-6 mb-7 mb-sm-9">
+                <div class="col-sm-6 mb-7 mb-sm-9 desc-datascientist desc-data">
                   <!-- Icon Block -->
                   <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../static/img/datascientist.png" alt="Image Description">
                     <p>Data scientist est une spécialiste de la science des données. Il ou elle analyse les datas (concernant les clients, les prospects, les employés, etc.) que l’entreprise récupère par différents canaux et la restitue sous forme de prospective, de conseils, d’améliorations du produit, du service, de la formation en interne, de l’efficacité de l’entreprise, de sa performance.</p>
                     <a href="https://www.lebigdata.fr/13-competences-necessaires-devenir-data-scientist#:~:text=Charg%C3%A9%20de%20la%20gestion%2C%20de,%C3%A9l%C3%A8ve%20%C3%A0%20116%20840%20dollars.">
                       Learn More
-                      <i class="fa fa-angle-right align-middle ml-2"></i>
+                      <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
                     </a>
                   </div>
                   <!-- End Icon Block -->
                 </div>
 
-                <div class="col-sm-6 mb-7 mb-sm-9">
+                <div class="col-sm-6 mb-7 mb-sm-9 desc-dataengineer desc-data">
                   <!-- Icon Block -->
                   <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../static/img/dataengineer.png" alt="Image Description">
@@ -234,9 +237,10 @@
                   <!-- End Icon Block -->
                 </div>
 
-                <div class="col-sm-6 mb-7 mb-sm-0">
+                <div class="col-sm-6 mb-7 mb-sm-0 desc-dataanalyst desc-data">
                   <!-- Icon Block -->
                   <div class="pr-lg-4">
+
                     <img class="max-width-9 mb-2" src="../static/img/data_analyst.png" alt="Image Description">
                     <p>Également appelé analyste de données ou Data Miner, le Data Analyst est rattaché à la direction des systèmes d’information d’une entreprise. Il est responsable de toutes les opérations des bases de données.</p>
                     <a href="https://www.carriere-informatique.com/actualite/emploi/2512/fiche-metier-data-analyst">
@@ -262,15 +266,15 @@
               </div> 
             </div>
 
-            <div class="tab-pane fade" id="v-pills-key-benefits" role="tabpanel" aria-labelledby="v-pills-key-benefits-tab">
+            <!-- <div class="tab-pane fade" id="v-pills-key-benefits" role="tabpanel" aria-labelledby="v-pills-key-benefits-tab">
               <div class="row align-items-lg-center">
                 <div class="col-lg-5 mb-7 mb-7 mb-lg-0">
                   <img class="img-fluid" src="../../assets/img/700x900/img1.jpg" alt="Image Description">
-                </div>
+                </div> -->
 
                 <div class="col-lg-7">
                   <!-- Description -->
-                  <div class="pl-lg-4">
+                  <!-- <div class="pl-lg-4">
                     <span class="u-label u-label--sm u-label--purple mb-3">Integrations</span>
                     <h2 class="h3 mb-3">Key benefits of Space template</h2>
                     <p>The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.</p>
@@ -279,7 +283,7 @@
                       Learn More
                       <i class="fa fa-angle-right align-middle ml-2"></i>
                     </a>
-                  </div>
+                  </div> -->
                   <!-- End Description -->
                 </div>
               </div>
@@ -289,53 +293,53 @@
               <div class="row">
                 <div class="col-sm-6 mb-7 mb-sm-9">
                   <!-- Icon Block -->
-                  <div class="pr-lg-4">
+                  <!-- <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../../assets/svg/components/rocket-red-icon.svg" alt="Image Description">
                     <p>Now that your brand is all dressed up and ready to party, it's time to release it to the world. By the way, let's celebrate already.</p>
                     <a href="#">
                       Learn More
                       <i class="fa fa-angle-right align-middle ml-2"></i>
-                    </a>
+                    </a> -->
                   </div>
                   <!-- End Icon Block -->
                 </div>
 
                 <div class="col-sm-6 mb-7 mb-sm-9">
                   <!-- Icon Block -->
-                  <div class="pr-lg-4">
+                  <!-- <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../../assets/svg/components/data-analysis-blue-icon.svg" alt="Image Description">
                     <p>We get it, you're busy and it's important that someone keeps up with marketing and driving people to your brand. We've got you covered.</p>
                     <a href="#">
                       Learn More
                       <i class="fa fa-angle-right align-middle ml-2"></i>
                     </a>
-                  </div>
+                  </div> -->
                   <!-- End Icon Block -->
                 </div>
 
                 <div class="col-sm-6 mb-7 mb-md-9">
                   <!-- Icon Block -->
-                  <div class="pr-lg-4">
+                  <!-- <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../../assets/svg/components/arrow-primary-icon.svg" alt="Image Description">
                     <p>It's important to stay detail oriented with every project we tackle. Staying focused allows us to turn every project we complete into something we love.</p>
                     <a href="#">
                       Learn More
                       <i class="fa fa-angle-right align-middle ml-2"></i>
                     </a>
-                  </div>
+                  </div> -->
                   <!-- End Icon Block -->
                 </div>
 
                 <div class="col-sm-6">
                   <!-- Icon Block -->
-                  <div class="pr-lg-4">
+                  <!-- <div class="pr-lg-4">
                     <img class="max-width-9 mb-2" src="../../assets/svg/components/moving-up-brown-icon.svg" alt="Image Description">
                     <p>We strive to embrace and drive change in our industry which allows us to keep our clients relevant and ready to adapt.</p>
                     <a href="#">
                       Learn More
                       <i class="fa fa-angle-right align-middle ml-2"></i>
                     </a>
-                  </div>
+                  </div> -->
                   <!-- End Icon Block -->
                 </div>
               </div>
@@ -353,8 +357,8 @@
         <!-- Title -->
         <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
           <div class="mb-5">
-            <span class="u-label u-label--sm u-label--purple mb-3">Key features</span>
-            <h2 class="h1">Create high quality products</h2>
+            <span class="u-label u-label--sm u-label--purple mb-3">Key Result</span>
+            <h2 class="h1">Jobs that most fit your Search</h2>
             <p class="lead">See how creating and moving projects forward in Space will help your to stay in sync, hit deadlines, and reach your goals.</p>
           </div>
 
@@ -374,9 +378,9 @@
         <!-- End Title -->
 
         <!-- SVG Mockup -->
-        <div class="w-lg-80 mx-auto">
+        <!-- <div class="w-lg-80 mx-auto">
           <object type="image/svg+xml" data="../../assets/svg/mockups/devices-1.svg"></object>
-        </div>
+        </div> -->
         <!-- End SVG Mockup -->
       </div>
     </div>
@@ -384,116 +388,18 @@
 
     <!-- Pricing Section -->
     <div class="bg-white mt-n9">
-      <div class="container space-3-top space-2-bottom space-4-top--lg space-3-bottom--lg">
-        <!-- Title -->
-        <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
-          <span class="u-label u-label--sm u-label--purple mb-3">Pricing plans</span>
-          <h2>No additional costs. Pay for what you use.</h2>
-          <p>Choose the most suitable service for your needs with reasonable price.</p>
-        </div>
-        <!-- End Title -->
+      
+      <div class="list-group">
+        <table id='result-frame'>
+          <thead>
+              <tr>
+                  <th>Company</th>
+                  <th>Description</th>
+                  <th>Link</th>
+              </tr>
+          </thead>
+      </table>
 
-        <div class="row align-items-lg-center">
-          <div class="col-md-6 col-lg-4 order-lg-2 offset-md-3 offset-lg-0 mb-5 mb-md-0">
-            <!-- Pricing -->
-            <div class="bg-primary border rounded py-9 p-5">
-              <div class="mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="h6 text-white mb-0">Growing</h4>
-                  <span class="u-label u-label--light u-label--sm">Recommended</span>
-                </div>
-                <div class="text-white mb-2">
-                  <span class="h1">$39</span>
-                  <span>/ month</span>
-                </div>
-                <ul class="list-unstyled text-white mb-4">
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check font-size-13 mr-3"></i>
-                    Community support
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check font-size-13 mr-3"></i>
-                    400+ pages
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check font-size-13 mr-3"></i>
-                    100+ header variations
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check font-size-13 mr-3"></i>
-                    20+ home page options
-                  </li>
-                </ul>
-              </div>
-              <button type="button" class="btn btn-block btn-sm btn-light">Subscribe Now</button>
-            </div>
-            <!-- End Pricing -->
-          </div>
-
-          <div class="col-md-6 col-lg-4 order-lg-1 mb-5 mb-md-0">
-            <!-- Pricing -->
-            <div class="bg-white border rounded py-7 p-5">
-              <div class="mb-4">
-                <h4 class="h6 text-secondary mb-3">Start</h4>
-                <div class="mb-2">
-                  <span class="h1 text-dark">Free</span>
-                </div>
-                <ul class="list-unstyled mb-4">
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    Community support
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    400+ pages
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    100+ header variations
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    20+ home page options
-                  </li>
-                </ul>
-              </div>
-              <button type="button" class="btn btn-block btn-sm btn-purple">Start Free Trial</button>
-            </div>
-            <!-- End Pricing -->
-          </div>
-
-          <div class="col-md-6 col-lg-4 order-lg-3">
-            <!-- Pricing -->
-            <div class="bg-white border rounded py-7 p-5">
-              <div class="mb-4">
-                <h4 class="h6 text-secondary mb-3">Enterprise</h4>
-                <div class="mb-2">
-                  <span class="h1 text-dark">Team</span>
-                </div>
-                <ul class="list-unstyled mb-4">
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    Community support
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    400+ pages
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    100+ header variations
-                  </li>
-                  <li class="d-flex align-items-center py-2">
-                    <i class="fa fa-check text-purple font-size-13 mr-3"></i>
-                    20+ home page options
-                  </li>
-                </ul>
-              </div>
-              <button type="button" class="btn btn-block btn-sm btn-purple">See Team Plans</button>
-            </div>
-            <!-- End Pricing -->
-          </div>
-        </div>
       </div>
     </div>
     <!-- End Pricing Section -->
@@ -511,10 +417,10 @@
           <!-- Testimonials -->
           <div class="text-center px-lg-4">
             <div class="mb-2">
-              <img class="u-avatar rounded-circle mx-auto mb-2" src="../../assets/img/100x100/img1.jpg" alt="Image Description">
+              <!-- <img class="u-avatar rounded-circle mx-auto mb-2" src="../../assets/img/100x100/img1.jpg" alt="Image Description">
               <h4 class="h6">Maria Muzynska</h4>
             </div>
-            <blockquote class="text-secondary mb-0">"I love Space! I love the ease of use, I love the fact that I have total creative freedom. The template is really nice and offers quite a large set of options. It's beautiful and the coding is done quickly and seamlessly."</blockquote>
+            <blockquote class="text-secondary mb-0">"I love Space! I love the ease of use, I love the fact that I have total creative freedom. The template is really nice and offers quite a large set of options. It's beautiful and the coding is done quickly and seamlessly."</blockquote> -->
           </div>
           <!-- End Testimonials -->
         </div>
@@ -523,10 +429,10 @@
           <!-- Testimonials -->
           <div class="text-center px-lg-4">
             <div class="mb-2">
-              <img class="u-avatar rounded-circle mx-auto mb-2" src="../../assets/img/100x100/img15.jpg" alt="Image Description">
+              <!-- <img class="u-avatar rounded-circle mx-auto mb-2" src="../../assets/img/100x100/img15.jpg" alt="Image Description">
               <h4 class="h6">Markus Brown</h4>
             </div>
-            <blockquote class="text-secondary mb-0">"We are incredibly impressed with Space and how well it supports its customers with amazing products and services. One simple subscription gives you access to all our tools, plus so much more."</blockquote>
+            <blockquote class="text-secondary mb-0">"We are incredibly impressed with Space and how well it supports its customers with amazing products and services. One simple subscription gives you access to all our tools, plus so much more."</blockquote> -->
           </div>
           <!-- End Testimonials -->
         </div>
@@ -535,20 +441,20 @@
     <!-- End Testimonials Section -->
 
     <!-- CTA -->
-    <div class="gradient-overlay-half-primary-v1">
+    <!-- <div class="gradient-overlay-half-primary-v1">
       <div class="bg-img-hero" style="background-image: url(../../assets/img/bg/bg2.png);">
         <div class="container">
           <div class="row align-items-lg-center text-center text-lg-left space-2">
-            <div class="col-lg-7">
-              <h2 class="text-white">Get started with Space</h2>
-              <p class="lead text-white mb-0">Space gives you everything you need to manage business, build great stuff, and reach your goals.</p>
-            </div>
+            <div class="col-lg-7"> -->
+              <!-- <h2 class="text-white">Get started with Space</h2>
+              <p class="lead text-white mb-0">Space gives you everything you need to manage business, build great stuff, and reach your goals.</p> -->
+            <!-- </div>
 
             <div class="col-lg-5 text-lg-right">
               <a class="btn btn-purple mb-2 mb-sm-0 mr-sm-2" href="../pages/signup-simple.html">Create Free Account</a>
               <a class="btn btn-light mb-2 mb-sm-0" href="../../starter/index.html">Learn More</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -626,9 +532,9 @@
 
         <div class="col-lg-4 order-lg-1 d-flex align-items-start flex-column">
           <!-- Logo -->
-          <a class="d-inline-block mb-5" href="index.html" aria-label="Space">
+          <!-- <a class="d-inline-block mb-5" href="index.html" aria-label="Space">
             <img src="../../assets/svg/logos/logo-short-white.svg" alt="Logo" style="width: 40px; max-width: 100%;">
-          </a>
+          </a> -->
           <!-- End Logo -->
 
           <!-- Language -->
@@ -657,7 +563,7 @@
                 <div class="row">
                   <div class="col-6">
                     <!-- List of Languages -->
-                    <div class="list-group list-group-borderless list-group-flush">
+                    <!-- <div class="list-group list-group-borderless list-group-flush">
                       <a class="active d-flex align-items-center list-group-item list-group-item-action" href="#">
                         <img class="max-width-3 mr-2" src="../../assets/vendor/flag-icon-css/flags/4x3/us.svg" alt="United States Flag">
                         English
@@ -674,13 +580,13 @@
                         <img class="max-width-3 mr-2" src="../../assets/vendor/flag-icon-css/flags/4x3/pt.svg" alt="Portugal Flag">
                         Português
                       </a>
-                    </div>
+                    </div> -->
                     <!-- End List of Languages -->
                   </div>
 
                   <div class="col-6">
                     <!-- List of Languages -->
-                    <div class="list-group list-group-borderless list-group-flush">
+                    <!-- <div class="list-group list-group-borderless list-group-flush">
                       <a class="d-flex align-items-center list-group-item list-group-item-action" href="#">
                         <img class="max-width-3 mr-2" src="../../assets/vendor/flag-icon-css/flags/4x3/es.svg" alt="Spain Flag">
                         Español
@@ -697,7 +603,7 @@
                         <img class="max-width-3 mr-2" src="../../assets/vendor/flag-icon-css/flags/4x3/tr.svg" alt="Turkey Flag">
                         Türkçe
                       </a>
-                    </div>
+                    </div> -->
                     <!-- End List of Languages -->
                   </div>
                 </div>
@@ -757,7 +663,7 @@
               <!-- End Title -->
 
               <!-- List -->
-              <ul class="list-unstyled font-size-14 mb-5">
+              <!-- <ul class="list-unstyled font-size-14 mb-5">
                 <li>
                   <a class="media align-items-center u-sidebar--panel__link py-2 px-5" href="#">
                     <img class="max-width-4 mr-3" src="../../assets/svg/components/finance-dark-icon.svg" alt="Image Description">
@@ -798,7 +704,7 @@
                     </div>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
               <!-- End List -->
 
               <!-- Title -->
@@ -808,7 +714,7 @@
               <!-- End Title -->
 
               <!-- List -->
-              <ul class="list-unstyled font-size-14 mb-0">
+              <!-- <ul class="list-unstyled font-size-14 mb-0">
                 <li>
                   <a class="media align-items-center u-sidebar--panel__link py-2 px-5" href="#">
                     <img class="max-width-4 mr-3" src="../../assets/svg/components/calendar-dark-icon.svg" alt="Image Description">
@@ -833,7 +739,7 @@
                     </div>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
               <!-- End List -->
             </div>
           </div>
@@ -1146,19 +1052,15 @@
   <!-- End Go to Top -->
 
   <!-- JS Global Compulsory -->
-  <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-  <script src="../../assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-  <script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src="../../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-  <script src="../../assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-  <script src="../../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="../../assets/vendor/custombox/dist/custombox.min.js"></script>
-  <script src="../../assets/vendor/custombox/dist/custombox.legacy.min.js"></script>
-  <script src="../../assets/vendor/slick-carousel/slick/slick.js"></script>
-  <script src="../../assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+  <script src={{ url_for('static', filename='/js/hs.megamenu.js') }}></script>
+  <script src= {{ url_for('static', filename='/js/custombox.min.js') }}></script>
+  <script src= {{ url_for('static', filename='/js/custombox.legacy.min.js') }}></script>
+  <script src={{ url_for('static', filename='/js/slick.js') }}></script>
 
   <!-- JS Space -->
   <script src="../static/js/hs.core.js"></script>
@@ -1175,7 +1077,7 @@
 
   <!-- JS Plugins Init. -->
   <script>
-    $(window).on('load', function () {
+    /*$(window).on('load', function () {
       // initialization of HSMegaMenu component
       $('.js-mega-menu').HSMegaMenu({
         event: 'hover',
@@ -1229,7 +1131,83 @@
 
       // initialization of go to
       $.HSCore.components.HSGoTo.init('.js-go-to');
-    });
+    }); */
+
+
+    btn_eng = document.getElementById("v-pills-key--data-engineer-tab")
+    btn_analyst = document.getElementById("v-pills-data-analyst-tab")
+    btn_scientist = document.getElementById("v-pills-data-scientist-tab")
+
+
+    function desc_data(data_eng, e) { // ça c'est la fonction qu'on a créer afin de generalise rle process et juste changer la classe sur la quel on veux appliquer ça c'est un peu comme python
+      data_blocs = document.querySelectorAll(".desc-data") // ici on fait ça pour ne gros afficher en cliquant sur le nom datascientist dans l'app qu'il ne sors que la description de datascience et ne pas afficher les autres donc ici on lui dis de tout effacer tout les div ou y a 'desc-data' dans leurs classe 
+      data_links = document.querySelectorAll(".data-link") // et la on lui dis d'afficher uniquement la balise sur la quelle on clique 
+
+      for (const data_bloc of data_blocs) {
+        data_bloc.style.display = "none"; // la on lui dis de ne pas afficher 'none' toute les balise qui contienent la classe "desc-data"  donc en haut on la défini et la on l'éxecute 
+      }
+
+      for (const data_link of data_links) {
+        data_link.classList.remove("active"); //la on gros on lui dis de emover tout ce qui active (cad les div sur les quel on a cliquer il sont considerer comme active et donc on essaye de remover ça pour que seulement les div sur les quels on clique  qui deviendrons active et afficherons leur contenu )
+      }
+      e.target.classList += " active"
+
+      document.querySelector(data_eng).style.display = "block"; // la en gros on lui dis d'afficher la balise sur le quel on a cliquer uniquement et d'ignorer ceux d'avant 
+    }
+
+    btn_scientist.addEventListener("click",function(e){
+      desc_data(".desc-datascientist", e)
+    })
+
+    btn_analyst.addEventListener("click",function(e){
+      desc_data(".desc-dataanalyst", e)
+    })
+
+    btn_eng.addEventListener("click",function(e){
+      desc_data(".desc-dataengineer", e)
+    })
+    // ----------AJAX-----------------------
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+    $(function(){ // le $ juste avant signifie qu'on execute une jquery au lieu décrire toute la fonction ça suffit de metrtre "$"
+      $('#search-job-btn').bind('click', function() { // le bind permet d'associer l'action a l id 
+
+        $.getJSON($SCRIPT_ROOT + '/search',{
+          
+          title:$('#title-field-data').val(), // val recup la valeurs de title entrer par le front a flask afin de le traiter 
+          skills:$('#skills-field-data').val() // val recup la valeurs de skills entrer par le front a flask afin de le traiter 
+        }, function(data) {
+          console.log(data.result)
+          var table=document.getElementById('result-frame')
+          table.removeChild(document.getElementsByTagName('tbody')) // ici on supprime le tbody initial qui correspond au requete ancienne et que les nouvelle resulta ne se confond pas avec les ancienne 
+          var tbody=document.createElement('tbody')
+          // var res_table=[data.result] // cette ligne est nécessaire que quand data result est unique on le transform en array en le mettant entre [] mais quand un  un result ou ya beaucoup de sortis (un array) pas besoin donc faut faire un code adaptable 
+          for (result of data.result){ 
+            var row= document.createElement('tr') // ici on créer la balise tr auquel on mets les headers de chaque colonne et comme on vois ne bas y a un tr pour chaque colonne 
+            var data_company=document.createElement('td') //ici c'est un peu comme créer ou mettre le texte qu'on fetch de notre query mongo 
+            var company=document.createTextNode(result.Company) // ici c'est le resultat qu'on mettra dans la balise créer dessus 
+            var data_desc=document.createElement('td')
+            var desc=document.createTextNode(result.Description)
+            var data_link=document.createElement('td')
+            var link=document.createTextNode(result.Links)
+            
+            data_company.appendChild(company) // append child permet de rajouter le text dans son emplacement 
+            data_desc.appendChild(desc)
+            data_link.appendChild(link)
+            
+            row.appendChild(data_company) // et la on append l'emplacement dans la colonne adéquate
+            row.appendChild(data_desc)
+            row.appendChild(data_link)
+            
+            tbody.appendChild(row) // et pour finir ici on ajoute a notre table toute les colonne qui doivent etre dedans 
+
+          }
+          $('#result-frame').append(tbody) // cette étape permet de relier l'html qu'on a créer tout en haut avec l'id "result-frame" a cette jquery avec le language javascript 
+        });
+      });
+
+    })
+   
   </script>
 </body>
 </html>
